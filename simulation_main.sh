@@ -6,7 +6,7 @@ VCF_FILE="l10k_n100.vcf.gz"
 AHMM_INPUT="l10k_n100.panel"
 
 # Run msprime_sim_v1.py and pipe the output to bgzip and save as sim_v1_vcf.gz
-nice -19 python3 msprime_admix_sim.py /home/projects/MAAG/msprime_deme/demes/OOA_KAR_extension_admix.yaml mutation_ancestry_positions.tsv | bgzip -c > $VCF_FILE
+nice -19 python3 msprime_admix_sim.py OOA_KAR_extension_admix.yaml mutation_ancestry_positions.tsv | bgzip -c > $VCF_FILE
 
 #normalize the vcf file
 /home/ctools/bcftools-1.13/bcftools norm -m -any $VCF_FILE | bgzip > norm_$VCF_FILE
